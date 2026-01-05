@@ -1,0 +1,656 @@
+{
+   "WFWorkflowMinimumClientVersionString": "1106",
+   "WFWorkflowMinimumClientVersion": 1106,
+   "WFWorkflowIcon": {
+      "WFWorkflowIconStartColor": 463140863,
+      "WFWorkflowIconGlyphNumber": 61797
+   },
+   "WFWorkflowClientVersion": "4042.0.2.2",
+   "WFWorkflowOutputContentItemClasses": [],
+   "WFWorkflowHasOutputFallback": false,
+   "WFWorkflowActions": [
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "UUID": "701A066A-2D17-4ED9-A852-21AC9E3E9FD9",
+            "WFTextActionText": "I am ready to continue!"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "UUID": "09F77A27-4714-4C39-B6B8-A899CF10C748",
+            "WFTextActionText": "Thank you! I have downloaded What Amp."
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.number.random",
+         "WFWorkflowActionParameters": {
+            "WFRandomNumberMinimum": "1",
+            "WFRandomNumberMaximum": "250",
+            "UUID": "2444EA88-B59D-4904-AC1A-399677F6759A"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFNumberValue": "67",
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "OutputUUID": "2444EA88-B59D-4904-AC1A-399677F6759A",
+                     "Type": "ActionOutput",
+                     "OutputName": "Random Number"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "GroupingIdentifier": "17576761-723A-4C21-9379-7DEA2945C636",
+            "WFCondition": 4
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.link",
+         "WFWorkflowActionParameters": {
+            "WFInput": "https://guyboi1.github.io/SongDNA/update.html",
+            "UUID": "544A9BAA-1EBA-4E6B-8EB3-427CB8145E7E"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "OutputUUID": "544A9BAA-1EBA-4E6B-8EB3-427CB8145E7E",
+                     "Type": "ActionOutput",
+                     "OutputName": "URLs"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "GroupingIdentifier": "9E846D6D-2B4A-42C1-9037-2D864C25C27F",
+            "WFCondition": 100
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionMessage": "New Update Avalable! Would you like to continue? If not, hit cancel and run the shortcut again."
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "544A9BAA-1EBA-4E6B-8EB3-427CB8145E7E",
+                        "Type": "ActionOutput",
+                        "OutputName": "URLs"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "9E846D6D-2B4A-42C1-9037-2D864C25C27F",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "9E846D6D-2B4A-42C1-9037-2D864C25C27F",
+            "UUID": "DDE4B6AE-3E5A-4737-82D0-857FC573D279"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "17576761-723A-4C21-9379-7DEA2945C636",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "UUID": "CCF45BB3-E1F2-41FC-B29F-D22745FD20A5",
+            "GroupingIdentifier": "17576761-723A-4C21-9379-7DEA2945C636",
+            "WFControlFlowMode": 2
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "UUID": "8DDCDCFD-C6A6-4545-8F99-F2B1A392108D",
+            "WFTextActionText": ""
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "UUID": "35D760C6-C769-4822-9350-B365C8C8935E",
+            "WFTextActionText": "Username"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuPrompt": {
+               "Value": {
+                  "string": "Welcome back \uFFFC! How would you like to input your song.",
+                  "attachmentsByRange": {
+                     "{13, 1}": {
+                        "OutputUUID": "35D760C6-C769-4822-9350-B365C8C8935E",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "WFControlFlowMode": 0,
+            "WFMenuItems": [
+               "Input song through name.",
+               "Input song through Shazam (Music Recognition)."
+            ],
+            "GroupingIdentifier": "6AC64581-47A4-428A-A44A-82E61C6F7B84"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Input song through name.",
+            "GroupingIdentifier": "6AC64581-47A4-428A-A44A-82E61C6F7B84",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.ask",
+         "WFWorkflowActionParameters": {
+            "UUID": "7CA7DFFE-6760-4874-9C1E-8F4C1CFD05C3",
+            "WFAskActionPrompt": "What song would you like to input?"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "7CA7DFFE-6760-4874-9C1E-8F4C1CFD05C3",
+                  "Type": "ActionOutput",
+                  "OutputName": "Ask for Input"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Song Name"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Input song through Shazam (Music Recognition).",
+            "GroupingIdentifier": "6AC64581-47A4-428A-A44A-82E61C6F7B84",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "com.apple.musicrecognition.RecognizeMusicIntent",
+         "WFWorkflowActionParameters": {
+            "WFShazamMediaActionShowWhenRun": true,
+            "UUID": "BCEC5DFD-ECC7-404C-9EA6-37ADE7467281"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "BCEC5DFD-ECC7-404C-9EA6-37ADE7467281",
+                  "Type": "ActionOutput",
+                  "OutputName": "Shazam Media"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Song Name"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "UUID": "D8433233-E5B8-4D28-8017-6DF4F9DE8DCD",
+            "GroupingIdentifier": "6AC64581-47A4-428A-A44A-82E61C6F7B84",
+            "WFControlFlowMode": 2
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionMessage": "Are you ready to start? This may take up to 5 Minuites."
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.runworkflow",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "VariableName": "Song Name",
+                  "Type": "Variable"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFWorkflow": {
+               "workflowIdentifier": "F374A2ED-48BF-4B28-833E-DFF17D2EEC5F",
+               "workflowName": "What Amp?",
+               "isSelf": false
+            },
+            "UUID": "6DA046DF-812B-4F22-826F-4A56C87E6CA1",
+            "WFWorkflowName": "What Amp?"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "OutputUUID": "6DA046DF-812B-4F22-826F-4A56C87E6CA1",
+                     "Type": "ActionOutput",
+                     "OutputName": "Shortcut Result"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "GroupingIdentifier": "1C654D56-BD4B-4355-AAA4-E8FCB7F8AD8B",
+            "WFCondition": 101
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionMessage": "Please download What Amp? To figure out your amplifier settings."
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": "https://www.icloud.com/shortcuts/1460a603d4b0404ead62306f88cef71f"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "1C654D56-BD4B-4355-AAA4-E8FCB7F8AD8B",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "1C654D56-BD4B-4355-AAA4-E8FCB7F8AD8B",
+            "UUID": "E5C4EF60-DCE7-4D32-945A-9D8427290712"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "6DA046DF-812B-4F22-826F-4A56C87E6CA1",
+                  "Type": "ActionOutput",
+                  "OutputName": "Shortcut Result"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Amp"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "\nPickups\n• 3 × single-coil pickups (SSS). \u2028\u2028Controls\n• 1 × master volume knob.  \n• 2 × tone knobs (usually neck tone + middle/bridge tone).  \n• 5-way pickup selector switch.  \u2028\u2028For the pick up selector, left to right;\u2028\u20281️⃣ Neck pickup – warm, smooth\n2️⃣ Neck + Middle – glassy, clean\n3️⃣ Middle pickup – balanced\n4️⃣ Middle + Bridge – bright, quacky\n5️⃣ Bridge pickup – sharp, cutting\u2028\u2028Strat tone knobs (vintage SX):\n\n• Volume – controls overall output\n\n• Tone 1 – affects neck pickup (sometimes neck + middle)\n• Tone 2 – affects middle pickup (sometimes bridge on some SXs)\n\nWhat tone knobs do:\nTurn down → less treble, warmer/darker\nTurn up → more treble, brighter\u2028\u2028⚠️ Most vintage-style SX Strats do NOT have a tone knob for the bridge pickup unless rewired.",
+            "UUID": "E66EA184-7AB1-4F7D-91AE-8973D973D95D"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "For example, a Begginer Stratocoaster.",
+            "UUID": "B35AFFCF-B569-4EA9-BB6A-AF1417773FC9"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.askllm",
+         "WFWorkflowActionParameters": {
+            "WFLLMPrompt": {
+               "Value": {
+                  "string": "Based off the vibe of the song \uFFFC, which sounds like this description:\n\uFFFC\nPlease tell me what settings I should put the knobs/options on, and the pickup selector on. The guitar is a \uFFFC, and the description of the guitar controls are this: \n\uFFFC\nPlease also note that the amp and amp settings have been set to this:\n\uFFFC",
+                  "attachmentsByRange": {
+                     "{31, 1}": {
+                        "VariableName": "Song Name",
+                        "Type": "Variable"
+                     },
+                     "{70, 1}": {
+                        "Type": "Clipboard"
+                     },
+                     "{309, 1}": {
+                        "VariableName": "Amp",
+                        "Type": "Variable"
+                     },
+                     "{180, 1}": {
+                        "OutputUUID": "B35AFFCF-B569-4EA9-BB6A-AF1417773FC9",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     },
+                     "{237, 1}": {
+                        "OutputUUID": "B35AFFCF-B569-4EA9-BB6A-AF1417773FC9",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "7F7ACB21-1870-42FC-B932-C167BE515C19",
+            "WFLLMModel": "Apple Intelligence"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "7F7ACB21-1870-42FC-B932-C167BE515C19",
+                  "Type": "ActionOutput",
+                  "OutputName": "Response"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Guitar"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "Electric, Acoustic, Ect",
+            "UUID": "6C3CDD02-8B4C-4854-A94D-85DC3C785846"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "6C3CDD02-8B4C-4854-A94D-85DC3C785846",
+                  "Type": "ActionOutput",
+                  "OutputName": "Text"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Guitar Type"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.link",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "string": "https://www.google.com/search?q=\uFFFC%C2%A0site%3Aultimate-guitar.com+%22guitar%22+site%3Atabs.ultimate-guitar.com&sca_esv=5bb9be823fc6d962&sxsrf=AE3TifN0tCemn_DDE4EFgvudR3_zTaQlhg%3A1767524431888&ei=T0haaYn6Naadvr0P1_yCwAg&ved=0ahUKEwjJ3ZPP3fGRAxWmjq8BHVe-AIgQ4dUDCBE&uact=5&oq=%C2%A0site%3Aultimate-guitar.com+%22guitar%22+site%3Atabs.ultimate-guitar.com&gs_lp=Egxnd3Mtd2l6LXNlcnAiQcKgc2l0ZTp1bHRpbWF0ZS1ndWl0YXIuY29tICJndWl0YXIiIHNpdGU6dGFicy51bHRpbWF0ZS1ndWl0YXIuY29tSMUhUJQfWJQfcAJ4AJABAJgBpwGgAacBqgEDMC4xuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoActsgcAuAcAwgcAyAcAgAgA&sclient=gws-wiz-serp",
+                  "attachmentsByRange": {
+                     "{32, 1}": {
+                        "VariableName": "Song Name",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "BDE93C51-67B5-4AAA-BA80-E7903D3CFF8B"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.link",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "string": "https://www.youtube.com/results?search_query=\uFFFC+%22\uFFFC+Guitar+Tuturial%22",
+                  "attachmentsByRange": {
+                     "{45, 1}": {
+                        "VariableName": "Song Name",
+                        "Type": "Variable"
+                     },
+                     "{50, 1}": {
+                        "VariableName": "Guitar Type",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "45D9BFAD-B1E0-44E8-B8B9-748F74FC7A3A"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "UUID": "4D2F9613-481B-4E74-82B1-D9B2D14D81DC",
+            "WFTextActionText": {
+               "Value": {
+                  "string": "🎸═══════════════ 🎶 ═══════════════🎸\n            𝐒𝐨𝐧𝐠𝐃𝐍𝐀 𝐑𝐞𝐬𝐮𝐥𝐭𝐬\n🎸═══════════════ 🎶 ═══════════════🎸\n\n🧬 𝐒𝐨𝐧𝐠 𝐁𝐫𝐞𝐚𝐤𝐝𝐨𝐰𝐧\n   ├─ 🎥 𝐕𝐢𝐝𝐞𝐨 𝐆𝐮𝐢𝐝𝐞𝐬\n\n\uFFFC   \n\n└─ 🎼 𝐒𝐡𝐞𝐞𝐭 𝐌𝐮𝐬𝐢𝐜 / 𝐓𝐚𝐛𝐬\n \n\uFFFC\n\n⚙️ 𝐒𝐞𝐭𝐭𝐢𝐧𝐠𝐬\n   ├─ 🎸 \uFFFC 𝐆𝐮𝐢𝐭𝐚𝐫\n \n\n\uFFFC\n\n\n   ├─ 🔊 𝐆𝐚𝐫𝐚𝐠𝐞𝐁𝐚𝐧𝐝 𝐀𝐦𝐩\n\n\n\uFFFC\n         \n\n────────────────────────\n✨ Thank you for using SongDNA Guitar\n────────────────────────",
+                  "attachmentsByRange": {
+                     "{186, 1}": {
+                        "OutputUUID": "45D9BFAD-B1E0-44E8-B8B9-748F74FC7A3A",
+                        "Type": "ActionOutput",
+                        "OutputName": "URLs"
+                     },
+                     "{265, 1}": {
+                        "VariableName": "Guitar Type",
+                        "Type": "Variable"
+                     },
+                     "{233, 1}": {
+                        "OutputUUID": "BDE93C51-67B5-4AAA-BA80-E7903D3CFF8B",
+                        "Type": "ActionOutput",
+                        "OutputName": "URLs"
+                     },
+                     "{326, 1}": {
+                        "VariableName": "Amp",
+                        "Type": "Variable"
+                     },
+                     "{283, 1}": {
+                        "VariableName": "Guitar",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+         "WFWorkflowActionParameters": {
+            "Text": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "4D2F9613-481B-4E74-82B1-D9B2D14D81DC",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionMessage": "Finished! Please check your safari tabs. Hit okay if you want to open GarageBand as well. Hit okay twice if you want to save this DNA in a folder for later.",
+            "WFAlertActionTitle": {
+               "Value": {
+                  "string": "Thank you for using SongDNA, \uFFFC :)",
+                  "attachmentsByRange": {
+                     "{29, 1}": {
+                        "OutputUUID": "35D760C6-C769-4822-9350-B365C8C8935E",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.openapp",
+         "WFWorkflowActionParameters": {
+            "WFSelectedApp": {
+               "BundleIdentifier": "com.apple.garageband10",
+               "Name": "GarageBand",
+               "TeamIdentifier": "F3LWYJ7GM7"
+            },
+            "WFAppIdentifier": "com.apple.garageband10",
+            "UUID": "908EBCFD-D101-4409-9DCC-40E3BEE5C5E6"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionMessage": "Save this DNA into a folder for later?"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.documentpicker.save",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "4D2F9613-481B-4E74-82B1-D9B2D14D81DC",
+                  "Type": "ActionOutput",
+                  "OutputName": "Text"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "140C3620-4337-4FA6-A081-81EFB222DD29"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionMessage": {
+               "Value": {
+                  "string": "Thats all! See you next time \uFFFC :)",
+                  "attachmentsByRange": {
+                     "{29, 1}": {
+                        "OutputUUID": "35D760C6-C769-4822-9350-B365C8C8935E",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      }
+   ],
+   "WFWorkflowInputContentItemClasses": [
+      "WFAppContentItem",
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFFolderContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem"
+   ],
+   "WFWorkflowTypes": [
+      "WFWorkflowTypeShowInSearch"
+   ],
+   "WFWorkflowImportQuestions": [
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 13,
+         "Text": "Welcome to SongDNA :)\nFirst things first — what should SongDNA call you?",
+         "DefaultValue": "Username"
+      },
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 0,
+         "Text": "Before we continue, are you using a MacBook/iPad with an M1 Series Chip or later, or an iPhone 15 Pro and later? \n\nIf not, please download the non-Apple intelligence model that utilises ChatGPT instead. ↓↓↓\n\nhttps://www.icloud.com/shortcuts/bde1c22a96224d34a120ecf408b7e1dc",
+         "DefaultValue": "I am ready to continue!"
+      },
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 31,
+         "Text": "What electric (or acoustic) guitar model do you have? ",
+         "DefaultValue": "For example, a Begginer Stratocoaster."
+      },
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 30,
+         "Text": "Now, ask ChatGPT or any other AI model this question, changing the name of GUITAR NAME with your own guitar:\n\n“Explain the electronics of a [GUITAR NAME] in clear, beginner-friendly terms. Include:\n• What pickups it uses and their layout.\n• What each position on the pickup selector does, listed in order (neck → bridge), and which pickups are active in each position.\n• The general sound character of each selector position.\n• What each control knob does (volume, tone knobs, etc.).\n• Which pickups each tone knob affects and how turning them up or down changes the sound.\nKeep it concise, practical, and easy to understand.”\n\nFor again a Stratocaster as an example, this is what it would respond with:",
+         "DefaultValue": "\nPickups\n• 3 × single-coil pickups (SSS). \u2028\u2028Controls\n• 1 × master volume knob.  \n• 2 × tone knobs (usually neck tone + middle/bridge tone).  \n• 5-way pickup selector switch.  \u2028\u2028For the pick up selector, left to right;\u2028\u20281️⃣ Neck pickup – warm, smooth\n2️⃣ Neck + Middle – glassy, clean\n3️⃣ Middle pickup – balanced\n4️⃣ Middle + Bridge – bright, quacky\n5️⃣ Bridge pickup – sharp, cutting\u2028\u2028Strat tone knobs (vintage SX):\n\n• Volume – controls overall output\n\n• Tone 1 – affects neck pickup (sometimes neck + middle)\n• Tone 2 – affects middle pickup (sometimes bridge on some SXs)\n\nWhat tone knobs do:\nTurn down → less treble, warmer/darker\nTurn up → more treble, brighter\u2028\u2028⚠️ Most vintage-style SX Strats do NOT have a tone knob for the bridge pickup unless rewired."
+      },
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 34,
+         "Text": "Almost done! For the tutorial and music searching, is your guitar an electric, acoustic, or semi-acoustic? Respond with one word only. Do not put a space, or a full stop, or any grammar, after the word.",
+         "DefaultValue": "Electric, Acoustic, Ect"
+      },
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 12,
+         "Text": "Just to check, are you okay with sending this information off to an LLM to figure out the DNA of songs? Type anything or nothing into the box below and hit continue if you are okay with this.",
+         "DefaultValue": ""
+      },
+      {
+         "ParameterKey": "WFLLMModel",
+         "Category": "Parameter",
+         "ActionIndex": 32,
+         "Text": "This question asks for your preference on what AI model you would like to gather your Guitar DNA. ChatGPT is always recommended due to its accuracy, but for quciker speed for a bit slower lesser acuracy, Private Cloud Compute is always recomended, with On Device if you hate accuracy even more and want more privacy.",
+         "DefaultValue": "Apple Intelligence"
+      },
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 1,
+         "Text": "And finally, please install What Amp to figure out amplfier settings;\n\nhttps://www.icloud.com/shortcuts/9ea5d46c5b00413ab5fb46e4c742015c\n\nThats it! We hope you will like your SongDNA Experience!",
+         "DefaultValue": "Thank you! I have downloaded What Amp."
+      }
+   ],
+   "WFQuickActionSurfaces": [],
+   "WFWorkflowHasShortcutInputVariables": false
+}

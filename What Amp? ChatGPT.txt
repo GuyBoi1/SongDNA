@@ -1,0 +1,292 @@
+{
+   "WFWorkflowMinimumClientVersionString": "900",
+   "WFWorkflowMinimumClientVersion": 900,
+   "WFWorkflowIcon": {
+      "WFWorkflowIconStartColor": -12365313,
+      "WFWorkflowIconGlyphNumber": 61478
+   },
+   "WFWorkflowClientVersion": "4042.0.2.2",
+   "WFWorkflowOutputContentItemClasses": [
+      "WFStringContentItem"
+   ],
+   "WFWorkflowHasOutputFallback": false,
+   "WFWorkflowActions": [
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "UUID": "8CA0BC24-B12C-4726-B83C-B1BD157E6561",
+            "WFTextActionText": "Yes I have the app downloaded! I am ready!"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "Type": "ExtensionInput"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "GroupingIdentifier": "369B4E05-635F-4AE6-861C-C8B20D7C0D7F",
+            "WFCondition": 101
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.ask",
+         "WFWorkflowActionParameters": {
+            "WFAskActionPrompt": "What song do you want to find a garage band amplifier preset for?",
+            "UUID": "AFE9186B-9D1F-45FA-A107-63C09A73A142"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "369B4E05-635F-4AE6-861C-C8B20D7C0D7F",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "369B4E05-635F-4AE6-861C-C8B20D7C0D7F",
+            "UUID": "1E58E133-933C-4F90-9377-3DBF32408C57"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.askllm",
+         "WFWorkflowActionParameters": {
+            "UUID": "89A66C06-E704-49D4-A458-E35CCEDDA351",
+            "WFLLMPrompt": {
+               "Value": {
+                  "string": "Find all musical infortmation, such as genere, tone, sound, feel, scale, (for guitar) for this song: \uFFFC\uFFFC",
+                  "attachmentsByRange": {
+                     "{101, 1}": {
+                        "Type": "ExtensionInput"
+                     },
+                     "{102, 1}": {
+                        "OutputUUID": "AFE9186B-9D1F-45FA-A107-63C09A73A142",
+                        "Type": "ActionOutput",
+                        "OutputName": "Ask for Input"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "com.openai.chat.AskIntent",
+         "WFWorkflowActionParameters": {
+            "newChat": true,
+            "AppIntentDescriptor": {
+               "TeamIdentifier": "2DC432GLL2",
+               "BundleIdentifier": "com.openai.chat",
+               "Name": "ChatGPT",
+               "AppIntentIdentifier": "AskIntent"
+            },
+            "UUID": "28D143A0-D25F-4043-8F22-571E13831317",
+            "prompt": {
+               "Value": {
+                  "string": "Find all musical information, such as genere, tone, sound, feel, scale, (for guitar) for this song: \uFFFC\uFFFC",
+                  "attachmentsByRange": {
+                     "{100, 1}": {
+                        "Type": "ExtensionInput"
+                     },
+                     "{101, 1}": {
+                        "OutputUUID": "AFE9186B-9D1F-45FA-A107-63C09A73A142",
+                        "Type": "ActionOutput",
+                        "OutputName": "Ask for Input"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "ShowWhenRun": false
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setclipboard",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "28D143A0-D25F-4043-8F22-571E13831317",
+                  "Type": "ActionOutput",
+                  "OutputName": "Ask ChatGPT"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "684BB8FE-7486-4419-A7EA-936C723583E6"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "GarageBand Electric Guitar Amp Presets\n\nSmall Tweed Combo\n\t•\tTonal Character: A vintage-inspired 1×12″ Fender-style amp that goes from sweet, clean tones to gentle overdrive as you crank it . It’s warm, smooth, and responsive to picking dynamics, with clean-to-crunch character ideal for blues, country‑blues, or classic rock. In practice, setting Treble and Presence around 7 boosts definition .\n\t•\tControls:\n\t•\tGain: Controls preamp drive. Low Gain yields clean tones; higher Gain introduces tube-style breakup .\n\t•\tBass/Mids/Treble: Three-band EQ. Bass/Low adjusts low frequencies, Mids adjust midrange, Treble adjusts highs . Boosting these scoops out or fattens tone (e.g. cutting Mids for scooped sound).\n\t•\tPresence: Adjusts the very high-end “sparkle” in the power amp stage ; higher Presence adds bite and edge, lower makes tone darker.\n\t•\tMaster: Controls overall output volume to the speaker. At higher Master, tube saturation increases, adding thickness .\n\t•\tOutput: Final output slider (sets signal sent to track; effectively master volume).\n\t•\tReverb: On/Off switch and Level knob. Adds spring/room ambience; Amount knob sets reverb mix .\n\t•\tTremolo/Vibrato: On/Off toggle, Trem/Vib switch, Speed (rate) and Depth knobs . (Tremolo modulates volume; Vibrato modulates pitch.) Turn Depth/Speed up for choppy tremolo.\n\t•\tRecommended genres: Delta or Texas blues, country blues, rockabilly, classic rock. Its warm, “vintage” breakup suits blues-rock and roots styles.\n\nLarge Tweed Combo\n\t•\tTonal Character: A 4×10″ “hot-rodded” Fender bass/Combo hybrid that sounds more open and transparent than the small Tweed . It stays mostly clean at moderate volumes but can be driven into crunchy overdrive, with a punchy, raw character. Overall it’s brighter and airier than the Small Tweed, making it great for blues, early rock, or twangy country-rock.\n\t•\tControls: Same set of knobs as above (Gain, Bass, Mids, Treble, Presence, Master, Output, Reverb, Tremolo/Vibrato). Since it’s more transparent, pushing Gain will cleanly introduce crunch. Presence and Treble around 7 give extra definition .\n\t•\tRecommended genres: Texas blues, classic rock, roots rock, vintage country. Its clearer, more articulate voice works well for blues licks and jangly rock leads (less muddy than Small Tweed when driven).\n\nMini Tweed Combo\n\t•\tTonal Character: A compact 1×10″ amp modeled on a Fender “Harvard”-style tweed. It has a tight, punchy sound with the same warm-clean-to-crunch behavior of tweed amps . Because of the smaller speaker, it’s slightly bass-light but very dynamic. Think of it as a snappy, bluesy tone that cleans up nicely.\n\t•\tControls: Identical layout (Gain, EQ, Presence, Master, etc.). Lower Gain yields sparkling cleans; mid Gain into small breakup. Bass may be a bit lower for a Mini; adjust EQ to taste. Reverb and Tremolo behave as above.\n\t•\tRecommended genres: Blues (Chicago/Texas), retro rock, rockabilly. Its tight low-end and snappy highs suit blues riffs and solo country-rock.\n\nLarge Black Panel Combo\n\t•\tTonal Character: A 4×10″ Fender-style Black Panel (’60s Twin Reverb-like) combo with a “sweet, well-balanced” clean tone . It delivers lush clean chords and smooth lead tones, with built‑in spring reverb for spacious sound. The low end is tight, and it remains clear at high volumes. Ideal for surf-rock and classic R&B styles where pristine cleans and shimmering chords shine.\n\t•\tControls: Same core knobs. Low Gain for sparkling clean. Dialing Bass, Mids, and Treble shapes the tone: a mid scoop with brighter Treble often gives the vintage Fender “glassy” sound. Reverb can be used liberally for that surf or gospel vibe. Tremolo toggles add vintage pulsating depth if desired (set Speed/Depth moderate for slow wave).\n\t•\tRecommended genres: Surf rock, vintage R&B, country (twangy), jazz, and clean rock. Also good for indie/alt with clean tones; its lush reverb and chime make it perfect for surfy riffs or ballads.\n\nSilver Panel Combo\n\t•\tTonal Character: A 2×12″ “Silver Panel” Fender-type amp emphasizing loud, crystal-clear cleans . It has a percussive, articulate attack with strong high-end clarity. When driven, it produces a crunchy overdrive, but players usually leave it clean for funk chords, intricate R&B picking, or clean country leads. It’s very punchy and polished.\n\t•\tControls: Same controls. Because it’s designed for clean headroom, Gain can stay low; pushing Gain produces bite but can sound fizzy if overdone. Use Bass/Mids/Treble to dial the pronounced attack (e.g., more Bass for warmth, Treble for snap). Presence brightens top-end sparkle. Reverb adds depth for clean rhythms.\n\t•\tRecommended genres: Funk, R&B, country, jazz, and any style needing articulate clean chords (e.g. indie pop). It’s excellent for funk rhythm guitar or country-pop leads. Also suits vintage rock and blues that use crispy cleans.\n\nMini Black Panel Combo\n\t•\tTonal Character: A smaller 1×10″ version of the Black Panel cleans. It’s very bright, open, and clean-sounding, with decent bass for its size . Because of the size, the low end is tighter and the voice is crisper. Overdrive is minimal even at higher volumes – it’s really a clean-centric amp.\n\t•\tControls: Same as above. Gain should stay low for clean tone. Treble up adds sparkle, Bass up adds what little warmth there is. Reverb can give large-amp ambience. Tremolo adds vintage wobble (fine for surf/vintage licks).\n\t•\tRecommended genres: Clean jazz, surf rock, country, blues with emphasis on chord clarity (e.g. swing or funk). It also works well for recording guitar through small monitors due to its pronounced mids/highs.\n\nSmall Brown Panel Combo\n\t•\tTonal Character: A 1×12″ Fender “Brown Panel” style amp with a smooth, rich tone . It has warmth and subtle warmth and depth but with more presence than a strictly dark amp. The sound is full yet defined, suitable for clean jazz chords or mild overdrive. Think of it as a warmer alternative to the Black Panel amps.\n\t•\tControls: As usual, Gain = overdrive amount. Bass/Mids/Treble carve the warm spectrum (less trebly than Black Panel). Moderate Gain gives a creamy breakup. Presence brightens it up when needed. Use Reverb moderately for ambience.\n\t•\tRecommended genres: Smooth blues, classic rock, country-rock, and jazzy ballads. Its warm richness suits singer-songwriter or blues ensemble. It can also do indie rock chords with a vintage flavor.\n\nBlues Blaster Combo\n\t•\tTonal Character: A beefy 1×15″ combo characterized by a “clear top end with a tight, defined low end” . It’s literally designed for blues and rock, with big bottom and crisp highs. At clean settings it’s big and warm; with overdrive it gets a smooth but punchy crunch. In short, it’s a modern “blues engine.”\n\t•\tControls: Gain adds warm crunch; it’s less eager to break up than a Tweed, so you may need higher Gain or volume. Bass and Mids up give more heft, Treble adds cut. Presence controls bite on top-end. Reverb for space, and Tremolo if a vintage swing is wanted.\n\t•\tRecommended genres: Modern and traditional blues (Texas/Chicago blues), blues-rock, and classic rock. Also fits genres that want big bottom and clarity – e.g. Americana or stoner blues. (The name hints at “blues,” and that’s exactly its sweet spot.)\n\nVintage British Stack\n\t•\tTonal Character: An emulation of a late-1960s 50-watt British stack (think Marshall Plexi) known for “powerful, smooth distortion” and great note clarity . Even at max gain it stays defined (no flub). It’s the classic “glass in a blender” rock tone: singing lead sustain with rich harmonics and enough bite for rhythm riffs.\n\t•\tControls: Standard layout. Gain drives from crunchy to full-on saturated rock tone. Since it’s already quite hot, even moderate Gain sounds driven. Bass/Mids/Treble follow Marshall-style curves: cutting Mids yields more scooped metal tones, boosting Mids gives punchy rock. Presence brightens or smooths the high end. Reverb adds spaciousness if desired; Tremolo/Vibrato is optional (1960s Marshalls didn’t have trem, but you can use it creatively).\n\t•\tRecommended genres: Classic rock (’60s–’70s hard rock, e.g. Led Zeppelin, AC/DC), classic metal, and blues-rock solos. It’s ideal for crunchy power chords and sustained solos – basically any guitar-heavy rock style.\n\nModern British Stack\n\t•\tTonal Character: A later-era (’80s/’90s) British high-gain stack. It’s like a modern Marshall/JCM800 style: “deeper and brighter at the low and high end, with a more scooped midrange” . This gives a tight, aggressive sound – thick lows, piercing highs, less mid hump. It smoothly transitions from heavy crunch to full distortion, tailored for hard rock and metal.\n\t•\tControls: Same knobs. High Gain produces metal-level distortion quickly. To emphasize scoop, cut Mids, boost Bass and Treble. If you want more bite, raise Presence. Reverb on short settings for tight ambience, or off for dry punch. Tremolo usually off on metal styles, but it’s available for vintage vibes.\n\t•\tRecommended genres: Hard rock, metal (classic and modern), heavy alternative. Works for anything from 80s metal riffs to modern shoegaze with heavy drums. If you need a classic JCM-style overdrive, this is it; if you want brutal metal tones, turn up Gain and scooped EQ.\n\nBrown Stack\n\t•\tTonal Character: A “brown” mid-voltage British stack – essentially a hot-rodded old British amp run on lower voltage . The result is a more distorted, loose tone (the famous “brown sound”), often described as thick and gooey. Think of it as a woolly but rich fuzz-tone: fuzzier and more compressed than a normal British amp, useful for vintage metal and sludge.\n\t•\tControls: The same amp controls apply, but this model inherently sounds more saturated. Gain drive is thick from the get-go (even low Gain can sound dirty). Bass/Mids/Treble shape that thick tone: boosting Mids can tighten it slightly, cutting them makes it sludgier. Presence mellows the fuzzy highs. Reverb can add space but might wash the clarity; use sparingly. Tremolo adds old-school rock feel.\n\t•\tRecommended genres: Doom metal, stoner rock, grunge, garage rock – any style needing a “classic heavy” distorted tone. Also works for very crunchy blues-rock. Its unique saturation makes chords and riffs huge.\n\nBritish Blues Combo\n\t•\tTonal Character: A 2×12″ British combo (like a Vox AC30) “loud, aggressive” clean tone that can also produce rich distortion when pushed . It’s generally cleaner than the stack heads, offering a chimey edge on cleans, but will scream at high gain. In essence, it’s a bright, British-voiced amp tuned for blues – clear at low gain, big and driven at high gain.\n\t•\tControls: Standard controls. Gain provides moderate breakup (harder to reach heavy distortion than the stacks, but still possible). Treble and Presence high, Bass/Mids moderate gives that classic AC30 chiming tone. For more grit, raise Gain and Volume. Reverb for space, and Tremolo/Vibrato (many British combos had onboard tremolo); used tastefully for blues or vintage pop.\n\t•\tRecommended genres: British blues-rock, indie rock, Brit-pop (think The Kinks, early Beatles, Oasis guitars), and surf/blues hybrids. Essentially any style that wants a bright, singing British guitar sound with some grit.\n\nBritish Combo\n\t•\tTonal Character: A 2×12″ combo based on early 1960s British amps (like an AC30) . This is the classic “chimney pipe” voice – loud and chimey with smooth British bite. It’s perfect for crisp chordal work and cutting lead lines. Compared to the British Blues model, it’s slightly more vintage and jangly.\n\t•\tControls: Same controls. Lower Gain for sparkly clean, boost for mild breakup. High Treble and Presence emphasize top-end chime. Mids forward will add warmth to solos. Reverb adds ethereal shimmer (common in 60s British tones). Tremolo can give an old-school vibrato effect.\n\t•\tRecommended genres: 1960s British rock and pop (Beatles, The Who, early Pink Floyd), garage rock, jangle pop, mod. Also indie/alt that favors jangly guitars. Its chiming clean tone is iconic for retro and modern British-influenced music.\n\nSmall British Combo\n\t•\tTonal Character: A 1×12″ half-sized British combo with darker, less open tone than the full British Combo . It’s basically an AC30 on a diet: similar character but warmer and a bit muffled. This offers more growl and less airy sparkle. It can still chime, but with a slightly more focused midrange.\n\t•\tControls: The full set. Lower Gain for warm clean, higher for vintage crunch. Cut Treble and Presence for extra warmth, boost them for chime. Mids at noon or above keeps it thick. Reverb on for vintage vibe. Tremolo for classic British vibe.\n\t•\tRecommended genres: Indie rock, Brit-pop, blues, singer-songwriter, Americana. Useful when you want British character in a smaller package – say a noisier Brit-folk or a British-tinged country groove. Also good for punchy rhythm parts in roots-rock.\n\nBoutique British Combo\n\t•\tTonal Character: A 2×12″ “modern boutique” take on a 1960s British amp . It’s thicker and beefier than the other British combos, with stronger lows and milder highs. Imagine an AC30 with more bottom end and a warmer top. It still has that British midrange, but with extra punch. The result is a powerful crunchy clean, and a smooth overdrive that’s less brittle.\n\t•\tControls: Same layout. Gain yields saturation quickly (it’s a modern high-gain design). Bass can be higher than a vintage British amp, for heft. Treble is gentler, so dial as needed for clarity. Presence subtly shapes the bloom. Reverb adds space. Tremolo available for vintage flavors.\n\t•\tRecommended genres: Hard rock, alternative rock, even some metal – any style needing a fat British crunch. Also suits heavier blues or Southern rock (think a chunkier, modern AC30 tone). Since it’s an all-purpose high-gain amp, it’s quite versatile but always with a British vibe.\n\nModern American Stack\n\t•\tTonal Character: A quintessential modern high-gain American stack (think Mesa/Mark etc.) . It’s very tight and heavy, designed for metal and hard rock. You get saturated distortion with massive lows and tight, scooped mids (adjustable with the Mids knob). It’s aggressive and articulate under high-gain settings, with long sustain.\n\t•\tControls: Standard controls. For scooped metal sound, cut Mids, boost Bass and Treble. The Mids knob lets you dial midrange back in for classic metal or push further for modern djent. Gain is high by default. Presence adds glassiness. Reverb usually off or low in metal, but can add roominess. Tremolo off unless used stylistically.\n\t•\tRecommended genres: Modern metal (heavy metal, progressive metal, metalcore, djent), hard rock, aggressive alternative. It excels at chunky palm-muted riffs, extended harmonics, and tight riffage (e.g. djent/Rage Against the Machine style). Also popular for high-gain modern blues or rock leads.\n\nStudio Combo\n\t•\tTonal Character: A boutique 1×12″ amp inspired by sophisticated 1980s/90s designs . It has multiple gain stages for saturated distortion and also provides very bright, clean sounds. It’s meant for smooth sustain-heavy solos and bold clean tones. In other words, a versatile amp that can do crunchy metal or neon-clean 80s cleans, with plenty of headroom.\n\t•\tControls: Standard knobs. Gain gives a smooth transition to heavy distortion (though it’s already high-gain in nature). Dialing down Gain still yields a very bright clean (unlike a British amp’s dark clean). Bass and Treble up for tight lows and sparkling highs; Mids cut yields scooped metal. Presence tunes airiness. Reverb adds a polished ambience (think of an amp used in studios for layered guitars). Tremolo has less classic use here but is there for texture.\n\t•\tRecommended genres: 80s metal, progressive rock/metal, modern rock, and any style needing polished high-gain or pristine cleans. Think shredding guitar solos, melodic rock, or industrial metal. It’s also at home in retro styles (like 80s hard rock) due to its bright, aggressive voice.",
+            "UUID": "9E008549-2BEF-464B-B726-C676B099B864"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "com.openai.chat.AskIntent",
+         "WFWorkflowActionParameters": {
+            "UUID": "CBBED0B2-B41E-4D32-AAF4-0AE276D72249",
+            "prompt": {
+               "Value": {
+                  "string": "Based of this description of garage Band amplifier presets; \uFFFC. Find the best amp and amp settings (optional) for this song: \uFFFC\uFFFC. Futher information about the song: \uFFFC.  OTHER IMPORTANT NOTES: Only output with ONE amp result which you think is the best option. You dont always have to change settings if you dont want to, and let the preset do its thing. And you gotta say which preset you want! And dont yap too mcuh!",
+                  "attachmentsByRange": {
+                     "{60, 1}": {
+                        "OutputUUID": "9E008549-2BEF-464B-B726-C676B099B864",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     },
+                     "{125, 1}": {
+                        "OutputUUID": "AFE9186B-9D1F-45FA-A107-63C09A73A142",
+                        "Type": "ActionOutput",
+                        "OutputName": "Ask for Input"
+                     },
+                     "{163, 1}": {
+                        "Type": "Clipboard"
+                     },
+                     "{124, 1}": {
+                        "Type": "ExtensionInput"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "AppIntentDescriptor": {
+               "TeamIdentifier": "2DC432GLL2",
+               "BundleIdentifier": "com.openai.chat",
+               "Name": "ChatGPT",
+               "AppIntentIdentifier": "AskIntent"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "Type": "ExtensionInput"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "GroupingIdentifier": "230311F6-F88E-4786-AC0C-60EAC5B0EF88",
+            "WFCondition": 101
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+         "WFWorkflowActionParameters": {
+            "Text": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "CBBED0B2-B41E-4D32-AAF4-0AE276D72249",
+                        "Type": "ActionOutput",
+                        "OutputName": "Ask ChatGPT"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "230311F6-F88E-4786-AC0C-60EAC5B0EF88",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "230311F6-F88E-4786-AC0C-60EAC5B0EF88",
+            "UUID": "BD73CBC3-1201-44DD-A42D-28F17186A146"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.output",
+         "WFWorkflowActionParameters": {
+            "WFNoOutputSurfaceBehavior": "Do Nothing",
+            "WFOutput": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "CBBED0B2-B41E-4D32-AAF4-0AE276D72249",
+                        "Type": "ActionOutput",
+                        "OutputName": "Ask ChatGPT"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "4ECC266C-26A9-4729-8396-C056841C3858",
+            "WFResponse": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "7D519664-6560-4402-A67B-44BDD0A058DB",
+                        "Type": "ActionOutput",
+                        "OutputName": "Response"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      }
+   ],
+   "WFWorkflowInputContentItemClasses": [
+      "WFAppContentItem",
+      "WFAppStoreAppContentItem",
+      "WFArticleContentItem",
+      "WFContactContentItem",
+      "WFDateContentItem",
+      "WFEmailAddressContentItem",
+      "WFFolderContentItem",
+      "WFGenericFileContentItem",
+      "WFImageContentItem",
+      "WFiTunesProductContentItem",
+      "WFLocationContentItem",
+      "WFDCMapsLinkContentItem",
+      "WFAVAssetContentItem",
+      "WFPDFContentItem",
+      "WFPhoneNumberContentItem",
+      "WFRichTextContentItem",
+      "WFSafariWebPageContentItem",
+      "WFStringContentItem",
+      "WFURLContentItem"
+   ],
+   "WFWorkflowTypes": [
+      "ActionExtension",
+      "QuickActions",
+      "WFWorkflowTypeShowInSearch"
+   ],
+   "WFWorkflowImportQuestions": [
+      {
+         "ParameterKey": "WFTextActionText",
+         "Category": "Parameter",
+         "ActionIndex": 0,
+         "Text": "Do you have the ChatGPT app downloaded? \n\nIf not, you can get it from: https://chatgpt.com/download/\n\nOr from: https://apps.apple.com/us/app/chatgpt/id6448311069\n\nIf you would like the Apple Intelligence version of What Amp? Or Guitar DNA as well for a full experience, go here:  https://github.com/GuyBoi1/SongDNA",
+         "DefaultValue": "Yes I have the app downloaded! I am ready!"
+      }
+   ],
+   "WFQuickActionSurfaces": [
+      "Services"
+   ],
+   "WFWorkflowHasShortcutInputVariables": true
+}
