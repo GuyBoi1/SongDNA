@@ -4,17 +4,16 @@ SongDNA is an AI-powered (Apple Intelligence or ChatGPT) guitar assistant that b
 ### SongDNA Links
 
 #### Apple Intelligence:
-https://www.icloud.com/shortcuts/9191902b57cf44089183cff223494a9b
+https://www.icloud.com/shortcuts/9d6fcd24019146939e49240769662c0e
 
 #### ChatGPT:
-https://www.icloud.com/shortcuts/d35b8db5214e49c49277625756988a72
+https://www.icloud.com/shortcuts/52de24246fe64d398fc1a0535009750a
 
 ### WhatAMP? Links
 
 #### Apple Intelligence:
-https://www.icloud.com/shortcuts/1e3ba671eaa847fab80c48c63dedc237
+https://www.icloud.com/shortcuts/48b80adb3a9142199aec4defc0e17cd6
 
 #### ChatGPT:
-https://www.icloud.com/shortcuts/f93bd43ffa984e358e5ab41e24d586ad
-
+(https://www.icloud.com/shortcuts/e24e0567a9844338831e03d4c48f2ad0
 #       
