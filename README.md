@@ -1,5 +1,5 @@
 # SongDNA
-SongDNA is an AI-powered (Apple Intelligence or ChatGPT) guitar assistant that breaks any song down into its core playing DNA. Just give it a song name or hum the melody, and SongDNA generates video guides, sheet music &amp; tabs, precise electric guitar settings, GarageBand amp setups, and the correct tuning—so you can sound right, instantly. You can either install it and its helper shortcut (What Amp?) using the json files linked or through an icloud link.
+SongDNA is a guitar assistant powered by Apple Intelligence or ChatGPT that breaks down any song into its essential components. Simply enter a song title or hum the melody, and SongDNA will generate video tutorials, sheet music and tabs, GarageBand amp settings, and the appropriate guitar tuning. You can install the app and its accompanying shortcut ("What Amp?") either via the linked JSON files or an iCloud link.
 
 ### SongDNA Links
 
